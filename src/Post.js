@@ -1,5 +1,6 @@
 import React from "react";
-import PostActions from "./PostActions";
+import {PostActions} from "./PostActions";
+import { Comment } from "./PostActions";
 
 
 const Post=({post})=>(
@@ -7,6 +8,7 @@ const Post=({post})=>(
     <h3>{post.title}</h3>
     <p>{post.content}</p>
     <PostActions/>
+    <Comment/>
    </div>
 );
 

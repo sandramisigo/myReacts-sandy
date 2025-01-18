@@ -5,6 +5,8 @@ import NewsFeed from './NewsFeed';
 import Notifications from './Notifications';
 import './App.css'; 
 
+import Navbar from './Navbar'
+
 
 const App=()=> {
   const posts = [
@@ -15,24 +17,41 @@ const App=()=> {
     { user: "John", text: "Great post!" },
     { user: "Alice", text: "Thanks for sharing." }
   ];
+
   const notifications = [
     {id:1, message:"Someone viewed your profile."},
     {id:2, message:"Jane added a new photo."},
     {id:3, message:"Susan followed you."},
+    /*
     {id:4, message:"James liked your post."},
+    {id:4, message:"James liked your post."},
+    {id:4, message:"James liked your post."},
+    {id:4, message:"James liked your post."},
+    {id:4, message:"James liked your post."},
+    {id:4, message:"James liked your post."},
+    {id:4, message:"James liked your post."},
+
+*/
+
   ];
 
   return (
+
+
+
     <div className='app-container'>
+    
+
+    <Navbar/>
      <ProfileHeader name="Sandra Missy" biography="Web developer" profilePic="sandra.jpeg"/>
      <NewsFeed posts={posts}/>
-
+     
      <div className="comments-section">
         {comments.map((comment, index) => (
         <Comments key={index} comment={comment} />
         ))}
      </div>
-     <Notifications notifications={notifications}/>
+    <Notifications notifications={notifications}/>
     </div>
   );
 }

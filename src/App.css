@@ -8,7 +8,7 @@
 /* Body Styling */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #0c0c0f;
+  background-color: #0b2138;
   color: #333;
   line-height: 1.6;
   display: flex;
@@ -33,7 +33,7 @@ body {
   text-align: center;
   background-color: #fff;
   border-radius: 15px; /* Larger border radius */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Larger shadow */
+  box-shadow: 0 4px 15px #0000001a; /* Larger shadow */
   padding: 30px; /* Increased padding */
   width: 350px; /* Increased width */
   transition: all 0.3s ease-in-out;
