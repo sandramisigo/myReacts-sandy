@@ -1,0 +1,43 @@
+.notifications-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  
+  .notifications-container h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 10px;
+  }
+  
+  .notification-item {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(219, 188, 9, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .notification-item p {
+    font-size: 1.2rem;
+    color: #111111;
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  .notification-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background-color: #b1b2b3;
+  }
+  

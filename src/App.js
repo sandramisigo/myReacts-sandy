@@ -1,11 +1,10 @@
 import React from 'react';
 import ProfileHeader from './ProfileDetails';
-import Comments from './Comments';
+import Footer from './Footer';
 import NewsFeed from './NewsFeed';
 import Notifications from './Notifications';
 import './App.css'; 
-
-import Navbar from './Navbar'
+import Navbar from "./Navbar";
 
 
 const App=()=> {
@@ -19,19 +18,12 @@ const App=()=> {
   ];
 
   const notifications = [
-    {id:1, message:"Someone viewed your profile."},
-    {id:2, message:"Jane added a new photo."},
-    {id:3, message:"Susan followed you."},
-    /*
-    {id:4, message:"James liked your post."},
-    {id:4, message:"James liked your post."},
-    {id:4, message:"James liked your post."},
-    {id:4, message:"James liked your post."},
-    {id:4, message:"James liked your post."},
-    {id:4, message:"James liked your post."},
-    {id:4, message:"James liked your post."},
-
-*/
+    {id: 1, message: "Someone viewed your profile."},
+    {id: 2, message: "Jane added a new photo."},
+    {id: 3, message: "Susan followed you."},
+    {id: 4, message: "Mark liked your post."},
+    {id: 5, message: "Alex commented on your photo: 'Awesome shot!'"}, 
+ 
 
   ];
 
@@ -42,16 +34,17 @@ const App=()=> {
     <div className='app-container'>
     
 
-    <Navbar/>
-     <ProfileHeader name="Sandra Missy" biography="Web developer" profilePic="sandra.jpeg"/>
-     <NewsFeed posts={posts}/>
+  
+      <Navbar />
+    <div className="content">
+    <NewsFeed posts={posts}/>
+     <ProfileHeader name="Sandra Missy" biography="Software developer skilled in React, JavaScript, HTML, and CSS. Focused on building dynamic, user-friendly web apps. Driven by innovation and continuous learning." profilePic="sandra.jpeg"/>
+    
      
-     <div className="comments-section">
-        {comments.map((comment, index) => (
-        <Comments key={index} comment={comment} />
-        ))}
-     </div>
+     
     <Notifications notifications={notifications}/>
+    </div>
+    <Footer/>
     </div>
   );
 }

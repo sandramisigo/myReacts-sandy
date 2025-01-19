@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./ProfileDetails.css"
 const ProfileHeader=({name,biography})=>{
     const handleClick = () => {
         alert(`You followed ${name}`)

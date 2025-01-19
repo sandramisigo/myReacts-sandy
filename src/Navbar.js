@@ -48,8 +48,8 @@ function Navbar() {
           </div>
         </div>
         <img
-          src="public/sandra.jpeg"
-          alt="public/sandra.jpeg"
+          src="public/profile.jpeg"
+          alt="public/profile.jpeg"
           className="topbarImg"
         />
       </div>
