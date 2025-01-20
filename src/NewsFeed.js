@@ -4,11 +4,19 @@ import "./NewsFeed.css"; // Import the CSS file
 
 const NewsFeed = ({ posts }) => {
   const [showCommentForm, setShowCommentForm] = useState(null);
+  const [comments, setComments] = useState({}); // State to store comments for each post
 
   const handleCommentButtonClick = (postId) => {
     setShowCommentForm((prevState) =>
       prevState === postId ? null : postId
     );
+  };
+
+  const handleCommentSubmit = (postId, commentText) => {
+    setComments((prevComments) => ({
+      ...prevComments,
+      [postId]: [...(prevComments[postId] || []), commentText],
+    }));
   };
 
   return (
@@ -23,21 +31,47 @@ const NewsFeed = ({ posts }) => {
           >
             {showCommentForm === post.id ? "Hide Comment Form" : "Add Comment"}
           </button>
-          {showCommentForm === post.id && <CommentForm postId={post.id} />}
+
+          {/* Display comment form if selected */}
+          {showCommentForm === post.id && (
+            <CommentForm postId={post.id} onSubmit={handleCommentSubmit} />
+          )}
+
+          {/* Display submitted comments */}
+          <div className="comments-section">
+            {comments[post.id] &&
+              comments[post.id].map((comment, index) => (
+                <p key={index} className="comment">
+                  {comment}
+                </p>
+              ))}
+          </div>
         </div>
       ))}
     </div>
   );
 };
 
-const CommentForm = ({ postId }) => {
+const CommentForm = ({ postId, onSubmit }) => {
+  const [commentText, setCommentText] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (commentText.trim()) {
+      onSubmit(postId, commentText); // Pass the comment back to the parent
+      setCommentText(""); // Clear the textarea after submission
+    }
+  };
+
   return (
-    <form className="comment-form">
+    <form className="comment-form" onSubmit={handleSubmit}>
       <label htmlFor={`comment-${postId}`} className="comment-label">
         Add a comment:
       </label>
       <textarea
         id={`comment-${postId}`}
+        value={commentText}
+        onChange={(e) => setCommentText(e.target.value)}
         placeholder="Write your comment here"
         className="comment-textarea"
       />
